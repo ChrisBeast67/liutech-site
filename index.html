@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIUTECH — Industrial Air Compressors | LU250 PM+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A1628;
+      --secondary: #1C3A5E;
+      --accent: #00D4FF;
+      --bg: #F4F7FA;
+      --white: #FFFFFF;
+      --text: #0A1628;
+      --text-light: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(10, 22, 40, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 0 2rem;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+    }
+
+    .logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--primary) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover {
+      background: #33e0ff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 8rem 2rem 4rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(0, 212, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(28, 58, 94, 0.6) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 2rem;
+      max-width: 500px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--primary);
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary:hover {
+      background: #33e0ff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0, 212, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.25s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 16px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: #5a6a7a;
+      max-width: 650px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* FEATURES */
+    .features {
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(0, 212, 255, 0.1);
+      transition: all 0.3s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(10, 22, 40, 0.12);
+      border-color: var(--accent);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--white);
+    }
+
+    .feature-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+    }
+
+    /* GALLERY */
+    .gallery {
+      background: var(--bg);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 20px rgba(10, 22, 40, 0.08);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.03);
+    }
+
+    .gallery-caption {
+      padding: 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.9rem;
+      color: var(--secondary);
+      font-weight: 600;
+    }
+
+    /* ISO SYSTEM */
+    .iso-system {
+      background: var(--white);
+    }
+
+    .iso-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .iso-card {
+      background: var(--bg);
+      border-radius: 16px;
+      padding: 2rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .iso-card h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .iso-card p {
+      font-size: 0.95rem;
+      color: #5a6a7a;
+      line-height: 1.6;
+    }
+
+    .iso-card .specs {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(10, 22, 40, 0.1);
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* FILTERS */
+    .filters {
+      background: var(--primary);
+    }
+
+    .filters .section-label {
+      color: var(--accent);
+    }
+
+    .filters .section-title {
+      color: var(--white);
+    }
+
+    .filters .section-sub {
+      color: rgba(255,255,255,0.6);
+    }
+
+    .filter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .filter-item {
+      background: rgba(28, 58, 94, 0.5);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .filter-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .filter-item h4 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .filter-item p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* APPS */
+    .apps {
+      background: var(--bg);
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+    }
+
+    .app-item {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border: 1px solid rgba(10, 22, 40, 0.08);
+      transition: all 0.3s;
+    }
+
+    .app-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(10, 22, 40, 0.1);
+    }
+
+    .app-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .app-item span {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--primary);
+      text-align: center;
+      padding: 6rem 2rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+
+    .cta-phone {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-phone svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--accent);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    /* ANIMATIONS */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
+
+      .hero-image {
+        order: -1;
+      }
+
+      .hero-image img {
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        LIUTECH
+      </a>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Products</a></li>
+        <li><a href="#iso">ISO Standards</a></li>
+        <li><a href="#contact" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <h1>LIUTECH <span>LU250 PM+</span></h1>
+        <p class="hero-subtitle">Dual Motor Drive · First-Class Energy Efficiency</p>
+        <p>Industrial-grade oil-injected air compressor with dual motor technology. Maximum performance, minimum energy consumption. Built for demanding industrial applications.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18a16 16 0 006.41 6.41l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Get Quote
+          </a>
+          <a href="#features" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Learn More
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="images/782ad49a-465d-4cac-ba6b-94e532fcae68.png" alt="LIUTECH LU250 PM+ Air Compressor">
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <p class="section-label">Why Choose LIUTECH</p>
+      <h2 class="section-title">Engineered for Performance</h2>
+      <p class="section-sub">The LU250 PM+ delivers unmatched reliability with dual motor drive technology and first-class energy efficiency.</p>
+      
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <h3>Dual Motor Drive</h3>
+          <p>Advanced dual motor technology for continuous high-performance operation. Handles heavy industrial loads with ease.</p>
+        </div>
+        
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <h3>First-Class Energy Efficiency</h3>
+          <p>Optimized to meet the highest energy efficiency standards. Reduces operating costs while maximizing output.</p>
+        </div>
+        
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>ISO 8573-1 Compliant</h3>
+          <p>Meets international ISO 8573-1 air quality standards. Clean, reliable compressed air for sensitive applications.</p>
+        </div>
+        
+        <div class="feature-card reveal">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
+            </svg>
+          </div>
+          <h3>Industrial Build</h3>
+          <p>Robust construction with blue and grey finish. Built to last in demanding factory environments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="section-inner">
+      <p class="section-label">Product Gallery</p>
+      <h2 class="section-title">LIUTECH Compressor Range</h2>
+      <p class="section-sub">Explore our complete line of industrial air compression solutions.</p>
+      
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="images/782ad49a-465d-4cac-ba6b-94e532fcae68.png" alt="LU250 PM+ Front View">
+          <div class="gallery-caption">LU250 PM+ — Dual Motor Drive System</div>
+        </div>
+        
+        <div class="gallery-item reveal">
+          <img src="images/9ebdf5bd-1fde-47d3-8f15-56e8b5a42fa5.png" alt="LU250 PM+ Side View">
+          <div class="gallery-caption">Side Profile View</div>
+        </div>
+        
+        <div class="gallery-item reveal">
+          <img src="images/4edb2fa2-f59e-4441-8bf5-7fdbd39414ac.png" alt="Control Panel Detail">
+          <div class="gallery-caption">Digital Control Panel</div>
+        </div>
+        
+        <div class="gallery-item reveal">
+          <img src="images/6aa32989-31c1-4ac5-9fa8-c0e628e10657.png" alt="Ventilation System">
+          <div class="gallery-caption">Advanced Ventilation</div>
+        </div>
+        
+        <div class="gallery-item reveal">
+          <img src="images/dad075f8-09cf-4ee7-9bc8-1c158669bd7a.png" alt="Technical Diagram">
+          <div class="gallery-caption">System Configuration</div>
+        </div>
+        
+        <div class="gallery-item reveal">
+          <img src="images/2a6e50fc-d7de-427e-ae7c-ddd6d62213fb.png" alt="Label Detail">
+          <div class="gallery-caption">Model Specifications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISO STANDARDS -->
+  <section class="iso-system" id="iso">
+    <div class="section-inner">
+      <p class="section-label">Air Quality</p>
+      <h2 class="section-title">ISO 8573-1 Air Quality Standards</h2>
+      <p class="section-sub">Our systems meet international air quality classes for various industrial applications.</p>
+      
+      <div class="iso-grid">
+        <div class="iso-card reveal">
+          <h3>Class 0</h3>
+          <p>Highest purity for aerospace, pharmaceutical, and food applications. Ultra-low contamination levels.</p>
+          <div class="specs">Max particle: 0.1μm | Moisture: -40°C dew point | Oil: 0.003 mg/m³</div>
+        </div>
+        
+        <div class="iso-card reveal">
+          <h3>Class 1-2</h3>
+          <p>High-purity air for medical, electronics, and precision manufacturing.</p>
+          <div class="specs">Max particle: 1μm | Moisture: -20°C dew point | Oil: 0.01 mg/m³</div>
+        </div>
+        
+        <div class="iso-card reveal">
+          <h3>Class 3-4</h3>
+          <p>Standard industrial air for tools, painting, and general manufacturing.</p>
+          <div class="specs">Max particle: 5μm | Moisture: +3°C dew point | Oil: 0.1 mg/m³</div>
+        </div>
+        
+        <div class="iso-card reveal">
+          <h3>Class 5-6</h3>
+          <p>Basic compressed air for non-critical industrial applications.</p>
+          <div class="specs">Max particle: 40μm | Moisture: +7°C dew point | Oil: 1 mg/m³</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS & DRYERS -->
+  <section class="filters">
+    <div class="section-inner">
+      <p class="section-label">Treatment Solutions</p>
+      <h2 class="section-title">Filter & Dryer Configurations</h2>
+      <p class="section-sub">Complete air treatment solutions using G, C, D, V, and S-series filters.</p>
+      
+      <div class="filter-grid">
+        <div class="filter-item reveal">
+          <h4>G-Series</h4>
+          <p>General purpose pre-filtration</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>C-Series</h4>
+          <p>Coalescing filters</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>D-Series</h4>
+          <p>Desiccant dryers</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>V-Series</h4>
+          <p>Vacuum dryer systems</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>S-Series</h4>
+          <p>Sterile filtration</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>Refrigerated</h4>
+          <p>Refrigerated dryers</p>
+        </div>
+        
+        <div class="filter-item reveal">
+          <h4>Blower</h4>
+          <p>Blower suction dryers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATIONS -->
+  <section class="apps" id="apps">
+    <div class="section-inner">
+      <p class="section-label">Applications</p>
+      <h2 class="section-title">Industries We Serve</h2>
+      
+      <div class="apps-grid">
+        <div class="app-item reveal">
+          <div class="app-icon">🔧</div>
+          <span>Pneumatic Tools</span>
+        </div>
+        
+        <div class="app-item reveal">
+          <div class="app-icon">🎨</div>
+          <span>Painting</span>
+        </div>
+        
+        <div class="app-item reveal">
+          <div class="app-icon">🍔</div>
+          <span>Food Industry</span>
+        </div>
+        
+        <div class="app-item reveal">
+          <div class="app-icon">💊</div>
+          <span>Pharmaceutical</span>
+        </div>
+        
+        <div class="app-item reveal">
+          <div class="app-icon">💻</div>
+          <span>Electronics</span>
+        </div>
+        
+        <div class="app-item reveal">
+          <div class="app-icon">🏭</div>
+          <span>Manufacturing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="contact">
+    <div class="section-inner">
+      <h2>Ready to Power Your Industry?</h2>
+      <p>Contact us today for a custom compressed air solution tailored to your needs.</p>
+      
+      <a href="tel:+1234567890" class="cta-phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.18a16 16 0 006.41 6.41l1.41-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        +86 571-88888888
+      </a>
+      
+      <a href="#contact" class="btn-primary">
+        Request Quote
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">LIUTECH</div>
+    <p>Industrial Air Compressors & Air Treatment Systems</p>
+    <p style="margin-top: 1rem;">© 2026 LIUTECH. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal animations
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      const revealPoint = 150;
+      
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        
+        if (elementTop < windowHeight - revealPoint) {
+          element.classList.add('visible');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Initial check
+  </script>
+</body>
+</html>
