@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIUTECH Technical Specifications — English Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0A1628;
+      --secondary: #1C3A5E;
+      --accent: #00D4FF;
+      --bg: #F4F7FA;
+      --white: #FFFFFF;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: #333;
+      line-height: 1.7;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.3;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* HEADER */
+    header {
+      background: var(--primary);
+      color: var(--white);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    
+    header h1 {
+      color: var(--white);
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    header h1 span {
+      color: var(--accent);
+    }
+    
+    header .subtitle {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+    }
+    
+    header .doc-info {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    header .doc-info span {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    
+    /* MAIN CONTENT */
+    main {
+      padding: 3rem 2rem;
+    }
+    
+    section {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 20px rgba(10, 22, 40, 0.06);
+    }
+    
+    section h2 {
+      font-size: 1.8rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    section h3 {
+      font-size: 1.3rem;
+      color: var(--secondary);
+      margin: 2rem 0 1rem;
+    }
+    
+    section h3:first-of-type {
+      margin-top: 0;
+    }
+    
+    p {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    
+    ul {
+      margin: 1rem 0 1.5rem 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      color: #555;
+    }
+    
+    strong {
+      color: var(--primary);
+    }
+    
+    /* TABLES */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    
+    th {
+      background: var(--primary);
+      color: var(--white);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    td {
+      padding: 0.9rem 1rem;
+      border-bottom: 1px solid rgba(10, 22, 40, 0.08);
+    }
+    
+    tr:nth-child(even) {
+      background: var(--bg);
+    }
+    
+    tr:hover {
+      background: rgba(0, 212, 255, 0.05);
+    }
+    
+    /* CODE/BADGE */
+    .badge {
+      display: inline-block;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    
+    .badge-accent {
+      background: var(--accent);
+      color: var(--primary);
+    }
+    
+    /* HERO BOX */
+    .hero-box {
+      background: linear-gradient(135deg, var(--secondary), var(--primary));
+      color: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .hero-box h3 {
+      color: var(--accent);
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+    
+    .hero-box p {
+      color: rgba(255,255,255,0.85);
+    }
+    
+    .hero-box ul {
+      list-style: none;
+      margin: 1rem 0;
+    }
+    
+    .hero-box li {
+      color: rgba(255,255,255,0.85);
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .hero-box li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    /* PATH BOX */
+    .path-box {
+      background: var(--bg);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+    
+    .path-box h4 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+    }
+    
+    .path-box .apps {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    
+    /* SECTION DIVIDER */
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), transparent);
+      margin: 2rem 0;
+    }
+    
+    /* FOOTER */
+    footer {
+      background: var(--primary);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+    }
+    
+    footer span {
+      color: var(--accent);
+    }
+    
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      section {
+        padding: 1.5rem;
+      }
+      
+      section h2 {
+        font-size: 1.4rem;
+      }
+      
+      table {
+        font-size: 0.85rem;
+      }
+      
+      th, td {
+        padding: 0.6rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>LIUTECH <span>LU250 PM+</span></h1>
+      <p class="subtitle">Industrial Air Compressor Systems — Technical Specifications</p>
+      <div class="doc-info">
+        <span>📋 Document Version 1.0</span>
+        <span>📅 May 2026</span>
+        <span>🌐 English</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+    <!-- PRODUCT OVERVIEW -->
+    <section>
+      <h2>1. Product Overview</h2>
+      
+      <div class="hero-box">
+        <h3>LIUTECH LU250 PM+ Air Compressor</h3>
+        <p><strong>Model:</strong> LU250 PM+ | <strong>Type:</strong> Oil-Injected Rotary Screw Compressor</p>
+        <p><strong>Drive System:</strong> Dual Motor Drive | <strong>Energy Rating:</strong> First-Class Energy Efficiency</p>
+        <ul>
+          <li>Dual motor technology for continuous high-performance operation</li>
+          <li>First-class energy efficiency reduces operating costs</li>
+          <li>Robust industrial construction for factory environments</li>
+          <li>Digital control panel for easy monitoring</li>
+        </ul>
+      </div>
+      
+      <h3>2.1 Key Features</h3>
+      <ul>
+        <li><strong>Dual Motor Drive Technology</strong> — Provides continuous operation under heavy industrial loads</li>
+        <li><strong>First-Class Energy Efficiency</strong> — Optimized power consumption, reduced operating costs</li>
+        <li><strong>Industrial Construction</strong> — Steel blue/grey exterior, heavy-duty base</li>
+        <li><strong>Digital Control Panel</strong> — Easy operation and monitoring</li>
+        <li><strong>Advanced Ventilation</strong> — Efficient cooling system</li>
+      </ul>
+      
+      <h3>2.2 Control Panel Icons</h3>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
+        <span class="badge"><strong>⚡</strong> Power — On/Off Control</span>
+        <span class="badge"><strong>⚙️</strong> Gears — Operating Mode</span>
+        <span class="badge"><strong>📊</strong> Pressure — Real-time Monitoring</span>
+      </div>
+    </section>
+    
+    <!-- ISO STANDARDS -->
+    <section>
+      <h2>3. ISO 8573-1 Air Quality Standards</h2>
+      <p>The ISO 8573-1 standard defines air quality classes based on three key contaminants: <strong>Particles</strong>, <strong>Moisture</strong> (dew point), and <strong>Oil</strong>.</p>
+      
+      <h3>3.1 Air Quality Classes</h3>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Class</th>
+              <th>Max Particle Size</th>
+              <th>Max Moisture</th>
+              <th>Max Oil Content</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Class 0</strong></td>
+              <td>0.1 μm</td>
+              <td>-40°C dew point</td>
+              <td>0.003 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 1</strong></td>
+              <td>1 μm</td>
+              <td>-40°C dew point</td>
+              <td>0.01 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 2</strong></td>
+              <td>1 μm</td>
+              <td>-20°C dew point</td>
+              <td>0.1 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 3</strong></td>
+              <td>5 μm</td>
+              <td>-20°C dew point</td>
+              <td>0.1 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 4</strong></td>
+              <td>5 μm</td>
+              <td>+3°C dew point</td>
+              <td>1 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 5</strong></td>
+              <td>40 μm</td>
+              <td>+7°C dew point</td>
+              <td>1 mg/m³</td>
+            </tr>
+            <tr>
+              <td><strong>Class 6</strong></td>
+              <td>40 μm</td>
+              <td>+7°C dew point</td>
+              <td>5 mg/m³</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h3>3.2 Class Selection Guide</h3>
+      <ul>
+        <li><strong>Class 0</strong> — Aerospace, pharmaceutical, medical gas, food processing</li>
+        <li><strong>Class 1-2</strong> — Medical equipment, electronics, precision instruments</li>
+        <li><strong>Class 3-4</strong> — Pneumatic tools, painting, packaging machinery</li>
+        <li><strong>Class 5-6</strong> — Non-critical applications, basic tooling</li>
+      </ul>
+    </section>
+    
+    <!-- FILTERS -->
+    <section>
+      <h2>4. Filter Series</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Filter</th>
+              <th>Type</th>
+              <th>Application</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>G-Series</strong></td>
+              <td>General Purpose</td>
+              <td>Pre-filtration, removing large particles</td>
+            </tr>
+            <tr>
+              <td><strong>C-Series</strong></td>
+              <td>Coalescing</td>
+              <td>Removing oil aerosols and fine particles</td>
+            </tr>
+            <tr>
+              <td><strong>D-Series</strong></td>
+              <td>Desiccant</td>
+              <td>Adsorption drying, removing moisture</td>
+            </tr>
+            <tr>
+              <td><strong>V-Series</strong></td>
+              <td>Vacuum</td>
+              <td>Vacuum dryer systems</td>
+            </tr>
+            <tr>
+              <td><strong>S-Series</strong></td>
+              <td>Sterile</td>
+              <td>Sterile/medical grade filtration</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- DRYERS -->
+    <section>
+      <h2>5. Dryer Types</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Dryer Type</th>
+              <th>Method</th>
+              <th>Dew Point</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Refrigerated</strong></td>
+              <td>Refrigerant cooling</td>
+              <td>+3°C to +7°C</td>
+              <td>Class 4-5 applications</td>
+            </tr>
+            <tr>
+              <td><strong>Blower Suction</strong></td>
+              <td>Ambient air blown through exchanger</td>
+              <td>-20°C to -40°C</td>
+              <td>Class 1-3 applications</td>
+            </tr>
+            <tr>
+              <td><strong>Desiccant</strong></td>
+              <td>Desiccant material absorption</td>
+              <td>-40°C and below</td>
+              <td>Class 0-1 applications</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- TREATMENT PATHS -->
+    <section>
+      <h2>6. Complete Treatment Paths</h2>
+      
+      <div class="path-box">
+        <h4>Path 1: High-Purity System (Class 0-1)</h4>
+        <p><strong>Configuration:</strong> Compressor → Storage Tank → G-Filter → C-Filter → Refrigerated Dryer → D-Filter → S-Filter → Desiccant Dryer</p>
+        <p class="apps"><strong>Applications:</strong> Pharmaceutical, Medical gas, Food processing, Electronics</p>
+      </div>
+      
+      <div class="path-box">
+        <h4>Path 2: Standard Industrial (Class 3-4)</h4>
+        <p><strong>Configuration:</strong> Compressor → Storage Tank → G-Filter → C-Filter → Refrigerated Dryer</p>
+        <p class="apps"><strong>Applications:</strong> Pneumatic tools, General painting, Packaging machinery</p>
+      </div>
+      
+      <div class="path-box">
+        <h4>Path 3: Precision Industrial (Class 1-2)</h4>
+        <p><strong>Configuration:</strong> Compressor → Storage Tank → G-Filter → C-Filter → Blower Dryer → D-Filter</p>
+        <p class="apps"><strong>Applications:</strong> Precision instruments, Medical equipment, Laboratory use</p>
+      </div>
+      
+      <div class="path-box">
+        <h4>Path 4: General Purpose (Class 5-6)</h4>
+        <p><strong>Configuration:</strong> Compressor → Storage Tank → G-Filter</p>
+        <p class="apps"><strong>Applications:</strong> Simple tooling, Non-critical ventilation, Basic industrial use</p>
+      </div>
+    </section>
+    
+    <!-- INDUSTRIES -->
+    <section>
+      <h2>7. Application Industries</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Industry</th>
+              <th>Required Class</th>
+              <th>Typical Configuration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pneumatic Tools</strong></td>
+              <td>Class 4</td>
+              <td>G-Filter + Refrigerated Dryer</td>
+            </tr>
+            <tr>
+              <td><strong>Painting</strong></td>
+              <td>Class 2-3</td>
+              <td>G-Filter + C-Filter + Refrigerated Dryer</td>
+            </tr>
+            <tr>
+              <td><strong>Food & Beverage</strong></td>
+              <td>Class 0-1</td>
+              <td>Full treatment path with desiccant dryer</td>
+            </tr>
+            <tr>
+              <td><strong>Pharmaceutical</strong></td>
+              <td>Class 0-1</td>
+              <td>Full treatment path with sterile filter</td>
+            </tr>
+            <tr>
+              <td><strong>Electronics</strong></td>
+              <td>Class 1-2</td>
+              <td>G-Filter + C-Filter + Blower Dryer</td>
+            </tr>
+            <tr>
+              <td><strong>Medical</strong></td>
+              <td>Class 0-1</td>
+              <td>Full treatment with sterile filtration</td>
+            </tr>
+            <tr>
+              <td><strong>Petrochemical</strong></td>
+              <td>Class 3-4</td>
+              <td>G-Filter + C-Filter + Refrigerated Dryer</td>
+            </tr>
+            <tr>
+              <td><strong>Agricultural</strong></td>
+              <td>Class 5-6</td>
+              <td>G-Filter only or basic treatment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- MAINTENANCE -->
+    <section>
+      <h2>8. Maintenance Schedule</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Interval</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Oil Change</td>
+              <td>Every 2,000 - 4,000 hours</td>
+            </tr>
+            <tr>
+              <td>Filter Replacement</td>
+              <td>Every 2,000 - 4,000 hours</td>
+            </tr>
+            <tr>
+              <td>Belt Inspection</td>
+              <td>Every 1,000 hours</td>
+            </tr>
+            <tr>
+              <td>Safety Valve Test</td>
+              <td>Annually</td>
+            </tr>
+            <tr>
+              <td>Full Service</td>
+              <td>Every 8,000 hours</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section>
+      <h2>9. Contact Information</h2>
+      <div class="hero-box">
+        <h3>LIUTECH</h3>
+        <ul>
+          <li><strong>Website:</strong> www.liutech.com</li>
+          <li><strong>Email:</strong> info@liutech.com</li>
+          <li><strong>Phone:</strong> +86 571-88888888</li>
+        </ul>
+        <p style="margin-top: 1rem; color: rgba(255,255,255,0.6); font-size: 0.9rem;">Product Range: Oil-injected compressors, Oil-free compressors, Refrigerated dryers, Adsorption dryers, Compressed air filters, Complete turnkey systems</p>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>LIUTECH Industrial Air Compressor Systems — Technical Specification | <span>English Version 1.0 | May 2026</span></p>
+  </footer>
+
+</body>
+</html>
